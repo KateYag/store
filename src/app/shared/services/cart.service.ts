@@ -4,6 +4,7 @@ import {environment} from "../../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {CartType} from "../../../types/cart.type";
 import {DefaultResponseType} from "../../../types/default-response.type";
+import {FavoriteType} from "../../../types/favorite.type";
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,8 @@ export class CartService {
 
   private count: number = 0;
   count$: Subject<number> = new Subject<number>();
+
+
 
   constructor(private http: HttpClient) { }
 
@@ -50,4 +53,7 @@ export class CartService {
         })
       );
   }
+
+
+
 }

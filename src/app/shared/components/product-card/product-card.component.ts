@@ -20,6 +20,7 @@ export class ProductCardComponent implements OnInit {
   @Input() product!: ProductType;
   @Input() isLight: boolean = false;
   @Input() countInCart: number | undefined = 0;
+  isLogged: boolean = false;
 
   serverStaticPath = environment.serverStaticPath;
   count: number = 1;
@@ -27,7 +28,9 @@ export class ProductCardComponent implements OnInit {
               private authService: AuthService,
               private _snackBar: MatSnackBar,
               private router: Router,
-              private favoriteService: FavoriteService) { }
+              private favoriteService: FavoriteService) {
+    this.isLogged = this.authService.getIsLoggedIn();
+  }
 
   ngOnInit(): void {
     if (this.countInCart && this.countInCart > 1) {

@@ -18,7 +18,12 @@
           {{product.price}} BYN
         </div>
         <div class="favorite-product-action">
-          <button class="button" routerLink="/product/{{product.url}}">Открыть</button>
+          <button class="button" *ngIf="!product.countInCart" (click)="addToCart(product)">В корзину</button>
+          <button class="button button-transparent" *ngIf="product.countInCart">
+            <span>В корзине</span>
+          </button>
+          <count-selector class="count-selector" [count]="product.countInCart" *ngIf="product.countInCart" (onCountChange)="updateCount(product, $event)"></count-selector>
+<!--          <button class="button" routerLink="/product/{{product.url}}">Открыть</button>-->
         </div>
         <div class="favorite-product-remove" (click)="removeFromFavorites(product.id)">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">

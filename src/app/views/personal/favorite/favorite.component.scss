@@ -55,10 +55,16 @@
           font-size: 22px;
           color: $gray-text-color;
         }
-        .favorite-product-action button {
-          width: 160px;
-          box-sizing: border-box;
+        .favorite-product-action {
+          button {
+            width: 160px;
+            box-sizing: border-box;
+          }
+          .count-selector {
+            margin-left: 20px;
+          }
         }
+
         .favorite-product-remove {
           margin-left: 60px;
           cursor: pointer;
